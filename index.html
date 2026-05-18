@@ -1,0 +1,763 @@
+@@ -0,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Code Resource Hub</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.80)),
+    url('https://i.pinimg.com/1200x/25/5e/6a/255e6a9ce78282a79d736713a65c289b.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
+}
+
+/* HEADER */
+
+header{
+
+    background:#0d0d0d;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0px 2px 15px rgba(0,0,0,0.5);
+}
+
+header h1{
+
+    font-size:32px;
+
+    color:white;
+}
+
+nav button{
+
+    background:#1f1f1f;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    margin-left:10px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+nav button:hover{
+
+    background:#333;
+}
+
+/* PAGE */
+
+.page{
+
+    display:none;
+}
+
+.active{
+
+    display:block;
+}
+
+/* HERO */
+
+.hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px;
+
+    gap:50px;
+}
+
+.hero-text{
+
+    width:50%;
+}
+
+.hero-text h2{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+}
+
+.hero-text p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#cccccc;
+}
+
+.hero-image{
+
+    width:45%;
+}
+
+.hero-image img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    box-shadow:0px 0px 20px rgba(0,0,0,0.5);
+}
+
+/* LOGIN */
+
+.login-box{
+
+    width:400px;
+
+    margin:80px auto;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    padding:35px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:0px 0px 20px rgba(0,0,0,0.4);
+}
+
+.login-box h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1f1f1f;
+
+    color:white;
+}
+
+.login-box button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:black;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+/* SECTION */
+
+.section-title{
+
+    text-align:center;
+
+    margin-top:50px;
+
+    font-size:40px;
+}
+
+/* CARDS */
+
+.cards{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:25px;
+
+    padding:40px;
+}
+
+.card{
+
+    width:300px;
+
+    background:rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0px 0px 15px rgba(0,0,0,0.3);
+
+    transition:0.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+}
+
+.card img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+}
+
+.card-content{
+
+    padding:20px;
+}
+
+.card h3{
+
+    margin-bottom:10px;
+}
+
+.card p{
+
+    color:#cccccc;
+
+    line-height:1.6;
+}
+
+.card a{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    text-decoration:none;
+
+    background:white;
+
+    color:black;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#0d0d0d;
+
+    padding:20px;
+
+    text-align:center;
+
+    margin-top:50px;
+
+    color:#cccccc;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+
+    flex-direction:column;
+}
+
+.hero-text{
+
+    width:100%;
+}
+
+.hero-image{
+
+    width:100%;
+}
+
+header{
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+
+<div id="loginPage" class="page active">
+
+<div class="login-box">
+
+<h2>Login To Continue</h2>
+
+<input type="email" id="email" placeholder="Enter Email">
+
+<input type="password" id="password" placeholder="Enter Password">
+
+<button onclick="login()">
+Login
+</button>
+
+</div>
+
+</div>
+
+<!-- HOME PAGE -->
+
+<div id="homePage" class="page">
+
+<header>
+
+<h1>Code Resource Hub</h1>
+
+<nav>
+
+<button onclick="showPage('youtubePage')">
+YouTube Tutorials
+</button>
+
+<button onclick="showPage('freeAppsPage')">
+Free Apps
+</button>
+
+<button onclick="showPage('paidAppsPage')">
+Paid Apps
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h2>Let's Learn Programming Together.</h2>
+
+<p>
+
+Discover the best coding tutorials, YouTube channels,
+free coding apps, and premium learning platforms
+for HTML, Python, JavaScript, Java, C++, and more.
+
+Access curated resources only after secure login.
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://i.pinimg.com/1200x/0d/13/46/0d1346fe637831714d4a0a704c4c48a8.jpg">
+
+</div>
+
+</section>
+
+</div>
+
+<!-- YOUTUBE PAGE -->
+
+<div id="youtubePage" class="page">
+
+<header>
+
+<h1>YouTube Tutorials</h1>
+
+<nav>
+
+<button onclick="showPage('homePage')">
+Home
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+<h2 class="section-title">
+Best Coding Channels
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/79/37/d9/7937d92d703baf478878b8f8c163f626.jpg">
+
+<div class="card-content">
+
+<h3>freeCodeCamp</h3>
+
+<p>HTML Full Course For Beginners</p>
+
+<a href="https://youtu.be/HNVaYYxmwLU?si=JhQRSkaI53gPn4Tt" target="_blank">
+Watch
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/db/19/f9/db19f9b3165a1c878b3a03f1f38a05fd.jpg">
+
+<div class="card-content">
+
+<h3>Traversy Media</h3>
+
+<p>Web Design Tutorials</p>
+
+<a href="https://youtu.be/UB1O30fR-EE?si=JEXA82V7_XRckKgh" target="_blank">
+Watch
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/d0/99/29/d099290b2bd47c0f798e67fd64f7c733.jpg">
+
+<div class="card-content">
+
+<h3>Programming With Mosh</h3>
+
+<p>Python Beginner Tutorials</p>
+
+<a href="https://youtu.be/7IgVGSaQPaw?si=sS-dAcbO6iVgTihV" target="_blank">
+Watch
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/1200x/25/5e/6a/255e6a9ce78282a79d736713a65c289b.jpg">
+
+<div class="card-content">
+
+<h3>The Coding Train</h3>
+
+<p>Creative Coding Tutorials</p>
+
+<a href="https://youtu.be/HerCR8bw_GE?si=XrvkMqE5nWmpI9Bn" target="_blank">
+Watch
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FREE APPS PAGE -->
+
+<div id="freeAppsPage" class="page">
+
+<header>
+
+<h1>Free Coding Apps</h1>
+
+<nav>
+
+<button onclick="showPage('homePage')">
+Home
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/db/19/f9/db19f9b3165a1c878b3a03f1f38a05fd.jpg">
+
+<div class="card-content">
+
+<h3>Mimo</h3>
+
+<p>Interactive Coding Lessons</p>
+
+<a href="https://mimo.org/" target="_blank">
+Visit
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/d0/99/29/d099290b2bd47c0f798e67fd64f7c733.jpg">
+
+<div class="card-content">
+
+<h3>SoloLearn</h3>
+
+<p>Mobile Coding Practice</p>
+
+<a href="https://www.sololearn.com/en/" target="_blank">
+Visit
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/79/37/d9/7937d92d703baf478878b8f8c163f626.jpg">
+
+<div class="card-content">
+
+<h3>Programiz</h3>
+
+<p>Programming Tutorials & Compiler</p>
+
+<a href="https://www.programiz.com/" target="_blank">
+Visit
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PAID APPS PAGE -->
+
+<div id="paidAppsPage" class="page">
+
+<header>
+
+<h1>Paid Coding Apps</h1>
+
+<nav>
+
+<button onclick="showPage('homePage')">
+Home
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/d0/99/29/d099290b2bd47c0f798e67fd64f7c733.jpg">
+
+<div class="card-content">
+
+<h3>Udemy</h3>
+
+<p>Premium Programming Courses</p>
+
+<a href="https://www.udemy.com/" target="_blank">
+Visit
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/79/37/d9/7937d92d703baf478878b8f8c163f626.jpg">
+
+<div class="card-content">
+
+<h3>Codecademy</h3>
+
+<p>Structured Coding Paths</p>
+
+<a href="https://www.codecademy.com/" target="_blank">
+Visit
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.pinimg.com/736x/db/19/f9/db19f9b3165a1c878b3a03f1f38a05fd.jpg">
+
+<div class="card-content">
+
+<h3>Entri App</h3>
+
+<p>Skill Development Courses</p>
+
+<a href="https://entri.app/" target="_blank">
+Visit
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Code Resource Hub
+
+</footer>
+
+<script>
+
+function login(){
+
+let email = document.getElementById("email").value;
+
+let password = document.getElementById("password").value;
+
+if(email !== "" && password !== ""){
+
+document.getElementById("loginPage").classList.remove("active");
+
+document.getElementById("homePage").classList.add("active");
+
+}
+
+else{
+
+alert("Please enter email and password");
+
+}
+
+}
+
+function showPage(pageId){
+
+let pages = document.querySelectorAll(".page");
+
+pages.forEach(function(page){
+
+page.classList.remove("active");
+
+});
+
+document.getElementById(pageId).classList.add("active");
+
+}
+
+function logout(){
+
+let pages = document.querySelectorAll(".page");
+
+pages.forEach(function(page){
+
+page.classList.remove("active");
+
+});
+
+document.getElementById("loginPage").classList.add("active");
+
+}
+
+</script>
+
+</body>
+
+</html>
